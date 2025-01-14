@@ -1,0 +1,66 @@
+:root {
+  --class-color: #00b8d4;
+  --class-header-color: #00b8d41a;
+  --function-color: #448aff;
+  --function-header-color: #448aff1a;
+}
+
+article > .doc {
+  border-style: solid;
+  border-width: 0.05rem;
+  border-radius: 0.2rem;
+  padding: 0.6rem 0.6rem;
+  box-shadow: var(--md-shadow-z1);
+}
+
+article > .doc + .doc {
+  margin-top: 1rem;
+}
+
+h3.doc {
+  margin: -0.6rem;
+  padding: 0.6rem;
+}
+
+article > .doc.doc-class {
+  border-color: var(--class-color);
+}
+
+.doc-class > h3.doc {
+  background-color: var(--class-header-color);
+}
+
+article > .doc.doc-function {
+  border-color: var(--function-color);
+}
+
+.doc-function > h3.doc {
+  background-color: var(--function-header-color);
+}
+
+/* Indentation. */
+div.doc-contents:not(.first) {
+  padding-left: 25px;
+  border-left: .05rem solid var(--md-typeset-table-color);
+}
+
+/* Mark external links as such. */
+a.autorefs-external::after {
+  /* https://primer.style/octicons/arrow-up-right-24 */
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="rgb(0, 0, 0)" d="M18.25 15.5a.75.75 0 00.75-.75v-9a.75.75 0 00-.75-.75h-9a.75.75 0 000 1.5h7.19L6.22 16.72a.75.75 0 101.06 1.06L17.5 7.56v7.19c0 .414.336.75.75.75z"></path></svg>');
+  content: ' ';
+
+  display: inline-block;
+  position: relative;
+  top: 0.1em;
+  margin-left: 0.2em;
+  margin-right: 0.1em;
+
+  height: 1em;
+  width: 1em;
+  border-radius: 100%;
+  background-color: var(--md-typeset-a-color);
+}
+a.autorefs-external:hover::after {
+  background-color: var(--md-accent-fg-color);
+}
